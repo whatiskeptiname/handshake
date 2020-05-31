@@ -110,7 +110,7 @@ app.post('/report', function (request, response) {
                 //To update Infection in all the users
                 User.find({}, function (err, users) {
                     if (err) {
-                        response.status(500).send({error: "Couldn't report!!!!");
+                        response.status(500).send({error: "Couldn't report!!!!"});
                         return;
                     } else {
                         users.forEach(function (user) {
