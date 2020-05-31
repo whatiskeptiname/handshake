@@ -55,7 +55,7 @@ app.post('/user', function (request, response) {
 
     User.findOne({
         "uid": sent_uid
-    }, 'uid gibberish contaminated infected', function (err, user) {
+    }, function (err, user) {
         if (user) {
             buffer_gib = user.gibberish;
             sent_gibberish.forEach(function (val) {
@@ -106,12 +106,11 @@ app.post('/report', function (request, response) {
                 response.status.send({
                     error: "Couldnt Update Data!!!"
                 });
-                return;
             } else {
                 //To update Infection in all the users
                 User.find({}, function (err, users) {
                     if (err) {
-                        response.status(500).send("Error!!!!");
+                        response.status(500).send({error: "Couldn't report!!!!");
                         return;
                     } else {
                         users.forEach(function (user) {
@@ -123,13 +122,11 @@ app.post('/report', function (request, response) {
                                             response.status(500).send({
                                                 error: "conuldn't save Data!!!"
                                             });
-                                            return;
                                         }
                                     });
                                 }else
                                 {
-                                    response.status(200).send(savedData);
-                                    return;
+                                    // response.status(200).send(savedData);
                                 }
                             });
                         });
