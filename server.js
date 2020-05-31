@@ -106,6 +106,7 @@ app.post('/report', function (request, response) {
                 response.status.send({
                     error: "Couldnt Update Data!!!"
                 });
+                return;
             } else {
                 //To update Infection in all the users
                 User.find({}, function (err, users) {
@@ -122,11 +123,13 @@ app.post('/report', function (request, response) {
                                             response.status(500).send({
                                                 error: "conuldn't save Data!!!"
                                             });
+                                            return;
                                         }
                                     });
                                 }else
                                 {
                                     response.status(200).send(savedData);
+                                    return;
                                 }
                             });
                         });
