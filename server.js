@@ -123,16 +123,19 @@ app.post('/report', function (request, response) {
                                                 error: "conuldn't save Data!!!"
                                             });
                                         } else {
-                                            response.status(200).send(savedUsers);
+                                            response.status(200).send(savedData);
                                         }
                                     });
+                                }else
+                                {
+                                    response.status(200).send(savedUsers);
                                 }
                             });
                         });
                     }
                 });
                 //response.status(200).send(savedData);
-                response.status(200).send("User Reported!!!")
+                response.status(200).send("{"message":"User Reported!!!"}")
             }
         });
     });
