@@ -131,7 +131,7 @@ app.post('/report', function (request, response) {
     });
 });
 
-
-app.listen(3005, function () {
+var PORT = process.env.PORT || 3005;
+app.listen(PORT, function () {
     console.log("cuddler Server running on port: 3005!!!\n");
 });
