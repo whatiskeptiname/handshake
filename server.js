@@ -35,7 +35,7 @@ app.get('/', function(request, response){
 
 // To get the data of individual user
 app.get('/user/:sent_uid', function (request, response) {
-    User.find({
+    User.findOne({
         "uid": request.params.sent_uid
     }, 'uid gibberish contaminated infected', function (error, user) {
         if (error) {
