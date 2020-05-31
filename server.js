@@ -126,7 +126,7 @@ app.post('/report', function (request, response) {
                                     });
                                 }else
                                 {
-                                    // response.status(200).send(savedData);
+                                    response.status(200).send(savedData);
                                 }
                             });
                         });
