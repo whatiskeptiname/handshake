@@ -27,6 +27,12 @@ app.use(function (req, res, next) {
 
 //Main code
 
+// Testin the server
+app.get('/', function(request, response){
+    response.status(200).send("Hurrey!!! Everything working smooth"
+    );
+});
+
 // To get the data of individual user
 app.get('/user/:sent_uid', function (request, response) {
     User.find({
