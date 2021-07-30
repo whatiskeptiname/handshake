@@ -2,10 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var User = require('./model/user');
+const {URI} = require('./secrets');
 
 var app = express();
 // var uri = "mongodb://localhost/";
-var uri = "mongodb+srv://mantra:Mantra@101@mantra-cbvx0.gcp.mongodb.net/test?retryWrites=true&w=majority";
+var uri = URI;
 mongoose.connect(uri, {
     useNewUrlParser: true
 });
